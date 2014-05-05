@@ -1,0 +1,22 @@
+filterString: "***"
+pluginLoaded: "Configuration loaded, plugin enabled!"
+pluginUnloaded: "Config saved, plugin unloaded! Thanks for using it :3"
+configReloaded: "Configuration reloaded!"
+noPermission: "You don't have permission to use this command."
+
+helpDescription: "Displays this help"
+reloadDescription: "Reloads configuration"
+saveDescription: "Saves the configuration and filters"
+toggleDescription: "Toggles the filter on/off"
+addDescription: "Adds a filter to the filter-list"
+removeDescription: "Removes an existent filter"
+
+savingConfig: "Saving all the stuff..."
+savedConfig: "Configuration and filters saved"
+
+chatMsgBlocked: "Chat message blocked"
+blockedMsgInfo: "Your message were blocked because it contains not allowed content."
+
+toggleInfo: "The chat filter is now"
+enabled: "enabled"
+disabled: "disabled"

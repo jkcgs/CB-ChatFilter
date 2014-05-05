@@ -1,0 +1,20 @@
+name: ChatFilter
+main: com.makzk.cb.chatfilter.ChatFilter
+version: 0.0.1
+author: makzk
+
+commands:
+   chatfilter:
+      description: Allows to control the Chat Filter.
+      usage: /<command>
+      aliases: cf
+      permission: chatfilter.command
+      permission-message: You don't have <permission> permission node
+
+permissions:
+    chatfilter.command:
+        description: Allows to use the Chat Filter controller command
+        default: op
+    chatfilter.ignore:
+        description: Allows to use the chat without filters
+        default: op
