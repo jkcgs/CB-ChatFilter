@@ -7,7 +7,7 @@ noPermission: "You don't have permission to use this command."
 helpDescription: "Displays this help"
 reloadDescription: "Reloads configuration"
 saveDescription: "Saves the configuration and filters"
-toggleDescription: "Toggles the filter on/off"
+toggleDescription: "Toggles the filters on/off"
 addDescription: "Adds a filter to the filter-list"
 removeDescription: "Removes an existent filter"
 

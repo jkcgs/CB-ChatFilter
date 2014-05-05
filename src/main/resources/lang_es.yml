@@ -1,0 +1,21 @@
+pluginLoaded: "Configuración cargada, plugin activado!"
+pluginUnloaded: "Configuración guardada, plugin desactivado! Gracias por usarlo :3"
+configReloaded: "Configuración recargada!"
+noPermission: "No tienes permiso para usar este comando."
+
+helpDescription: "Muestra esta ayuda"
+reloadDescription: "Recarga la configuración"
+saveDescription: "Guarda la configuración y los filtros"
+toggleDescription: "Activa y desactiva los filtros"
+addDescription: "Agrega un filtro a la lista de filtros"
+removeDescription: "Quita un filtro existente"
+
+savingConfig: "Guardando todo..."
+savedConfig: "Configuración y filtros guardados"
+
+chatMsgBlocked: "Mensaje de chat bloqueado"
+blockedMsgInfo: "Tu mensaje fue bloqueado porque contiene elementos no permitidos"
+
+toggleInfo: "El filtro de chat ahora está"
+enabled: "activado"
+disabled: "desactivado"
