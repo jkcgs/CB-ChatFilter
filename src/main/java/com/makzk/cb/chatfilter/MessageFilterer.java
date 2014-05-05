@@ -29,14 +29,14 @@ public class MessageFilterer {
 	
 	public void filterUpcases(int maxAmount, String upcasePattern) {
 		int i = 0;
-        Matcher m = Pattern.compile(upcasePattern).matcher(filteredMessage);
-        while (m.find()) {
-        	i++;
-        }
-        
-        if(i >= maxAmount){
-            filteredMessage = filteredMessage.toLowerCase();
-        }
+	    Matcher m = Pattern.compile(upcasePattern).matcher(filteredMessage);
+	    while (m.find()) {
+	    	i++;
+	    }
+	    
+	    if(i >= maxAmount){
+	        filteredMessage = filteredMessage.toLowerCase();
+	    }
 	}
 	
 	public void filterRegex(String regex) {
