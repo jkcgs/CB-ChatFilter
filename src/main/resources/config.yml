@@ -4,7 +4,7 @@ logOriginalFilteredMessage: true
 blockFilteredMessage: false
 useIgnorePermission: true
 filterString: "***"
+ipFilter: true
 upcaseFilter: true
 upcaseMinAmount: 5
 upcaseFilterPattern: "[A-Z\u00C1\u00C9\u00CD\u00D3\u00DA\u00D1]"
-ipFilter: true

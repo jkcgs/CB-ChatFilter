@@ -13,7 +13,12 @@ public class MessageFilterer {
 	private String originalMessage;
 	private String filteredMessage;
 	private String filterString;
-	private String ipPattern;
+	
+	// http://www.mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/
+	private static final String ipAddrPattern = 
+			// repeat the first part 3 times
+			new String(new char[3]).replace("\0", "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.") +
+			"([01]?\\d\\d?|2[0-4]\\d|25[0-5])";
 
 	/**
 	 * @param message
@@ -26,8 +31,6 @@ public class MessageFilterer {
 		filteredMessage = message;
 
 		this.filterString = filterString;
-
-		ipPattern = "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])";
 	}
 
 	/**
@@ -39,11 +42,10 @@ public class MessageFilterer {
 	}
 
 	/**
-	 * Applies the IP filter NOT WORKING ATM
+	 * Applies the IP filter 
 	 */
 	public void filterIP() {
-		// Not working D:
-		filteredMessage = replace(filteredMessage, ipPattern);
+		filteredMessage = filteredMessage.replaceAll(ipAddrPattern, filterString);
 	}
 
 	/**

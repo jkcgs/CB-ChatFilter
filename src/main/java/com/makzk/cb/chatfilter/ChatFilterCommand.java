@@ -66,7 +66,7 @@ public class ChatFilterCommand implements CommandExecutor {
 				String toggleName = null;
 
 				if (toggle.equals("help")) {
-					sender.sendMessage(p.lang.str("availableTogles"));
+					sender.sendMessage(p.lang.str("availableToggles"));
 					return true;
 				}
 
