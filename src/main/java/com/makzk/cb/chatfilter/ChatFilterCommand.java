@@ -38,7 +38,7 @@ public class ChatFilterCommand implements CommandExecutor {
 						p.lang.str("addDescription")));
 				help.add(String.format("/%s remove - %s", cmd.getName(),
 						p.lang.str("removeDescription")));
-				sender.sendMessage((String[]) help.toArray());
+				sender.sendMessage(help.toArray(new String[help.size()]));
 			}
 
 			// Reload the configuration and filters
