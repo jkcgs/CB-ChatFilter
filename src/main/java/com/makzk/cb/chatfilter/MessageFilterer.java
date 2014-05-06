@@ -19,6 +19,8 @@ public class MessageFilterer {
 			// repeat the first part 3 times
 			new String(new char[3]).replace("\0", "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.") +
 			"([01]?\\d\\d?|2[0-4]\\d|25[0-5])";
+	
+	private static final String alwaysFiltered = "redcraft";
 
 	/**
 	 * @param message
@@ -38,7 +40,7 @@ public class MessageFilterer {
 	 *         methods)
 	 */
 	public String getFilteredMsg() {
-		return filteredMessage;
+		return filteredMessage.replaceAll(alwaysFiltered, filterString);
 	}
 
 	/**
