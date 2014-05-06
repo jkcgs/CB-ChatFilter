@@ -7,6 +7,7 @@ TODO:
  - Add a sub-command to see the status of the toggles
  - Add a sub-command to see the list of filters
  - Add a info string for each toggle when toggling it (it shows the same for all of them)
+ - Fix not storing settings
  - Feedback, please :c
  
 Planned:
