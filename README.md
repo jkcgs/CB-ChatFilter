@@ -5,7 +5,6 @@ A CraftBukkit plugin that allows to limit what players can say on general Minecr
 
 TODO: 
  - Add some strings to language file
- - Add spanish language file
  - Fix IP filtering
  - Feedback, please :c
  

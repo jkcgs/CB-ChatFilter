@@ -66,8 +66,7 @@ public class ChatFilterCommand implements CommandExecutor {
 				String toggleName = null;
 
 				if (toggle.equals("help")) {
-					// TODO: Lang
-					sender.sendMessage("Available toggles: global, upcase, ip, blockfiltered.");
+					sender.sendMessage(p.lang.str("availableTogles"));
 					return true;
 				}
 
@@ -80,10 +79,7 @@ public class ChatFilterCommand implements CommandExecutor {
 				} else if (toggle.equals("blockfiltered")) {
 					toggleName = "toggleFilteredMessage";
 				} else {
-					// TODO: Lang
-					senderLog(sender, "That toggle does not exists. Type '/"
-							+ cmd.getName()
-							+ " toggle help' for get a toggle list");
+					senderLog(sender, String.format(p.lang.str("toggleNotFound"), cmd.getName()));
 				}
 
 				if (toggleName != null) {
@@ -92,14 +88,14 @@ public class ChatFilterCommand implements CommandExecutor {
 
 					// Log new toggle status
 					String status = p.config.bool(toggleName) ? "enabled" : "disabled";
-					senderLog(sender, p.lang.str("toggleInfo") + " " + p.config.string(status));
+					senderLog(sender, p.lang.str("toggleStatus") + " " + p.config.string(status));
 				}
 			}
 
 			// TODO: Merge with remove (?)
 			if (sub.equals("add")) {
 				if (args.length < 2) {
-					sender.sendMessage("Usage: /" + cmd.getName() + " add <string>");
+					sender.sendMessage(p.lang.str("usage") + ": /" + cmd.getName() + " add <string>");
 					return true;
 				}
 
@@ -108,30 +104,25 @@ public class ChatFilterCommand implements CommandExecutor {
 					list.add(args[1]);
 					p.filter.getConfig().set("filters", list);
 
-					// TODO: Lang
-					senderLog(sender, "New filter added: '" + args[1] + "'");
+					senderLog(sender, p.lang.str("newFilterAdded") + ": '" + args[1] + "'");
 				} else {
-					// TODO: Lang
-					sender.sendMessage("That filter already exists");
+					sender.sendMessage(p.lang.str("filterAlreadyExists"));
 				}
 			}
 
 			// TODO: Merge with add (?)
 			if (sub.equals("remove")) {
 				if (args.length < 2) {
-					// TODO: Lang
-					sender.sendMessage("Usage: /" + cmd.getName() + " remove <string>");
+					sender.sendMessage(p.lang.str("usage") + ": /" + cmd.getName() + " remove <string>");
 					return true;
 				}
 
 				List<String> list = p.filter.list("filters");
 				if (list.remove(args[1])) {
-					// TODO: Lang
 					p.filter.getConfig().set("filters", list);
-					senderLog(sender, "Filter removed: '" + args[1] + "'");
+					senderLog(sender, p.lang.str("filterRemoved") + ": '" + args[1] + "'");
 				} else {
-					// TODO: Lang
-					sender.sendMessage("That filter does not exists");
+					sender.sendMessage(p.lang.str("filterNotExists"));
 				}
 			}
 		}

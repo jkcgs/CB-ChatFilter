@@ -17,6 +17,17 @@ savedConfig: "Configuration and filters saved"
 chatMsgBlocked: "Chat message blocked"
 blockedMsgInfo: "Your message were blocked because it contains not allowed content."
 
-toggleInfo: "The chat filter is now"
+availableToggles: "Available toggles: global, upcase, ip, blockfiltered."
+toggleNotFound: "That toggle does not exists. Type '/%s toggle help' to see the toggle list"
+toggleStatus: "The chat filter is now"
+
+newFilterAdded: "New filter added"
+filterAlreadyExists: "That filter already exists"
+filterRemoved: "Filter removed"
+filterNotExists: "That filter does not exists"
+
 enabled: "enabled"
 disabled: "disabled"
+by: "by"
+and: "and"
+usage: "Usage"

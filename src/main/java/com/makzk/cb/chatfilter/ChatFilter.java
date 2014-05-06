@@ -38,6 +38,7 @@ public class ChatFilter extends JavaPlugin {
 
 		// Check if config were loaded
 		if (config == null || !lang.isLoaded()) {
+			// This should not be translated, by logical reasons
 			getLogger().severe("Configuration could not be loaded!");
 			getServer().getPluginManager().disablePlugin(instance);
 		} else {
@@ -78,7 +79,7 @@ public class ChatFilter extends JavaPlugin {
 		int nAuthors = getDescription().getAuthors().size();
 
 		if (nAuthors > 0) {
-			authors = "by ";
+			authors = lang.str("by") + " ";
 		}
 
 		for (int i = 0; i < nAuthors; i++) {
@@ -87,7 +88,7 @@ public class ChatFilter extends JavaPlugin {
 				authors += ", ";
 			} else if (i < nAuthors - 1) {
 				// if last author
-				authors += " and ";
+				authors += " " + lang.str("and") +" ";
 			}
 		}
 
