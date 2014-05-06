@@ -33,7 +33,7 @@ public class Language {
 	 * @return The translated path, from the language file
 	 */
 	public String str(String path) {
-		return lang.string(path);
+		return colorize(lang.string(path));
 	}
 
 	/**
