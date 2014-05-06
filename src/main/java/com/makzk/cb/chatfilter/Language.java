@@ -9,6 +9,8 @@ public class Language {
 
 	public void load() {
 		String confLang = p.config.string("lang");
+		
+		// TODO: Check if 'default' language, so avoid if file exists
 
 		// Check for language file
 		String langPath = "lang_" + confLang + ".yml";

@@ -16,10 +16,9 @@ public class Configuration {
     private File configFile;
     private FileConfiguration fileConfiguration;
     
-
     public Configuration(JavaPlugin plugin, String fileName) {
         if (plugin == null) {
-            throw new IllegalArgumentException("Plugin cannot be null");
+            throw new IllegalArgumentException("Plugin is not instantiated");
         }
         if (plugin.getDataFolder() == null) {
             throw new IllegalStateException();
@@ -35,10 +34,8 @@ public class Configuration {
 
         // Look for defaults in the jar
         InputStream defConfigStream = plugin.getResource(fileName);
-
         if (defConfigStream != null) {
             YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-
             fileConfiguration.setDefaults(defConfig);
         }
     }
@@ -67,20 +64,21 @@ public class Configuration {
         }
     }
     
+    // Shorthands for primitives
     public String string(String path){
-        return (this.getConfig().contains(path) && (this.getConfig().getString(path) != "")) ? 
+        return (getConfig().isString(path)) ? 
             this.getConfig().getString(path) : path;
     }
     
     public boolean bool(String path){
-        return this.getConfig().getBoolean(path);
+        return getConfig().getBoolean(path);
     }
     
     public List<String> list(String path){
-        return this.getConfig().getStringList(path);
+        return getConfig().getStringList(path);
     }
     
     public int intg(String path) {
-    	return this.getConfig().getInt(path);
+    	return getConfig().getInt(path);
     }
 }

@@ -21,10 +21,12 @@ public class ChatFilter extends JavaPlugin {
 
 		// Load/initiate config
 		config = new Configuration(instance, "config.yml");
+		config.saveDefaultConfig();
 		config.reloadConfig();
 
 		// Load/initiate filters
 		filter = new Configuration(instance, "filters.yml");
+		filter.saveDefaultConfig();
 		filter.reloadConfig();
 
 		lang = new Language();
@@ -49,6 +51,7 @@ public class ChatFilter extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		config.saveConfig();
+		filter.saveConfig();
 		getLogger().info(lang.str("pluginUnloaded"));
 	}
 
@@ -65,6 +68,9 @@ public class ChatFilter extends JavaPlugin {
 	public void reloadConfig() {
 		config.reloadConfig();
 		lang.load();
+		
+		// This will delete filters not saved before
+		filter.reloadConfig();
 	}
 
 	/**
