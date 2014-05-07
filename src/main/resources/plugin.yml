@@ -1,6 +1,6 @@
 name: ChatFilter
 main: com.makzk.cb.chatfilter.ChatFilter
-version: 0.0.1
+version: 0.0.2
 author: makzk
 
 commands:

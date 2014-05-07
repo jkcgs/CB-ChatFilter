@@ -8,6 +8,7 @@ helpDescription: "Displays this help"
 reloadDescription: "Reloads configuration"
 saveDescription: "Saves the configuration and filters"
 toggleDescription: "Toggles the filters on/off"
+togglestatusDescription: "Shows the status of available toggles"
 addDescription: "Adds a filter to the filter-list"
 removeDescription: "Removes an existent filter"
 
@@ -20,6 +21,7 @@ blockedMsgInfo: "Your message were blocked because it contains not allowed conte
 availableToggles: "Available toggles: global, upcase, ip, blockfiltered."
 toggleNotFound: "That toggle does not exists. Type '/%s toggle help' to see the toggle list"
 toggleStatus: "The chat filter is now"
+toggleStatusTitle: "Toggles status"
 
 newFilterAdded: "New filter added"
 filterAlreadyExists: "That filter already exists"

@@ -34,6 +34,8 @@ public class ChatFilterCommand implements CommandExecutor {
 						p.lang.str("saveDescription")));
 				help.add(String.format("/%s toggle - %s", cmd.getName(),
 						p.lang.str("toggleDescription")));
+				help.add(String.format("/%s toggle-status - %s", cmd.getName(),
+						p.lang.str("togglestatusDescription")));
 				help.add(String.format("/%s add - %s", cmd.getName(),
 						p.lang.str("addDescription")));
 				help.add(String.format("/%s remove - %s", cmd.getName(),
@@ -89,12 +91,23 @@ public class ChatFilterCommand implements CommandExecutor {
 					p.config.getConfig().set(toggleName, !p.config.bool(toggleName));
 
 					// Log new toggle status
-					String status = p.config.bool(toggleName) ? "enabled" : "disabled";
-					senderLog(sender, p.lang.str("toggleStatus") + " " + p.config.string(status));
+					String status = boolToStatus(p.config.bool(toggleName));
+					senderLog(sender, p.lang.str("toggleStatus") + " " + status);
 				}
 			}
+			
+			if(sub.equals("toggle-status")) {
+				// global, upcase, ip, blockfiltered
+				List<String> toggleStatus = new ArrayList<String>();
+				toggleStatus.add(p.lang.str("toggleStatusTitle") + ":");
+				toggleStatus.add("global: " + boolToStatus(p.config.bool("filterEnabled")));
+				toggleStatus.add("upcase: " + boolToStatus(p.config.bool("upcaseFilter")));
+				toggleStatus.add("ip: " + boolToStatus(p.config.bool("filterEnabled")));
+				toggleStatus.add("blockfiltered: " + boolToStatus(p.config.bool("blockFilteredMessaged")));
+				
+				sender.sendMessage(toggleStatus.toArray(new String[toggleStatus.size()]));
+			}
 
-			// TODO: Merge with remove (?)
 			if (sub.equals("add")) {
 				if (args.length < 2) {
 					sender.sendMessage(p.lang.str("usage") + ": /" + cmd.getName() + " add <string>");
@@ -112,7 +125,6 @@ public class ChatFilterCommand implements CommandExecutor {
 				}
 			}
 
-			// TODO: Merge with add (?)
 			if (sub.equals("remove")) {
 				if (args.length < 2) {
 					sender.sendMessage(p.lang.str("usage") + ": /" + cmd.getName() + " remove <string>");
@@ -146,5 +158,14 @@ public class ChatFilterCommand implements CommandExecutor {
 		if (sender instanceof Player) {
 			sender.sendMessage(msg);
 		}
+	}
+	
+	/**
+	 * Returns the language string for enabled and disabled, with a boolean
+	 * @param status The boolean to translate
+	 * @return The language string for "enabled" if status is true, string for "disabled" if false.
+	 */
+	public String boolToStatus(boolean status) {
+		return p.lang.str(status ? "enabled" : "disabled");
 	}
 }
