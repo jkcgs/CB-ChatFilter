@@ -59,7 +59,7 @@
 				</configuration>
 			</plugin>
 			<!-- If you're not me (makzk), remove this when building! -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.1</version>
@@ -74,7 +74,7 @@
 				<configuration>
 					<executable>copy_to_dropbox.bat</executable>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
