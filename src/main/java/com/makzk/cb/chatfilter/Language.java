@@ -8,22 +8,20 @@ public class Language {
 	private Configuration lang = null;
 
 	public void load() {
-		String confLang = p.config.string("lang");
-		
-		// TODO: Check if 'default' language, so avoid if file exists
+		// Checks if desired language file exists
+		String langPath = String.format(p.config.string("lang"), "lang_%s.yml");
 
-		// Check for language file
-		String langPath = "lang_" + confLang + ".yml";
-		File langFile = new File(langPath);
-		if (!langFile.isFile()) {
-			// Don't translate, we think that the language file could not be loaded
-			p.getLogger().warning( 
-					"File for language '" + confLang + "' was not found, loading default one");
-			langPath = "lang.yml";
-		} else {
-			p.getLogger().info("Language: " + confLang);
+		// If desired language file does not exists, use the default one
+		if (!(new File(langPath)).isFile()) {
+			// Don't translate, we think that the language 
+			// file could not be loaded
+			p.getLogger().warning(
+					String.format("Language file '%s' was not found.", langPath));
+			langPath = "lang_default.yml";
 		}
 
+		// Loads language file
+		p.getLogger().info("Language file: " + langPath + ".yml");
 		lang = new Configuration(p, langPath);
 		lang.reloadConfig();
 	}
@@ -31,7 +29,8 @@ public class Language {
 	/**
 	 * Gets a string named by path
 	 * 
-	 * @param path The path from the language file
+	 * @param path
+	 *            The path from the language file
 	 * @return The translated path, from the language file
 	 */
 	public String str(String path) {
@@ -49,7 +48,9 @@ public class Language {
 
 	/**
 	 * Format the color codes to the Bukkit way
-	 * @param str The parameter to colorize
+	 * 
+	 * @param str
+	 *            The parameter to colorize
 	 * @return The color-formatted string
 	 */
 	public String colorize(String str) {

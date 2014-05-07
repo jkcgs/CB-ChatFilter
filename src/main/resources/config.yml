@@ -1,5 +1,5 @@
 filterEnabled: true
-lang: en
+lang: default
 logOriginalFilteredMessage: true
 blockFilteredMessage: false
 useIgnorePermission: true
