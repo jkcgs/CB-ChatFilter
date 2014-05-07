@@ -10,23 +10,27 @@ public class Language {
 	public void load() {
 		// Checks if desired language file exists
 		String langPath = String.format("lang_%s.yml", p.config.string("lang"));
-
-		File langFile = new File(p.getDataFolder(), langPath);
-		// If desired language file does not exists, use the default one
-		// Will not check if language is "default", because it should be
-		// always there for you :$
-		if (!p.config.string("lang").equals("default") && !langFile.isFile()) {
-			// Don't translate, we think that the language 
-			// file could not be loaded
-			p.getLogger().warning(
-					String.format("Language file '%s' was not found.", langPath));
-			langPath = "lang_default.yml";
-		}
-
-		// Loads language file
-		p.getLogger().info("Language file: " + langPath);
+		
+		// Try to load a default file from plugin jar
 		lang = new Configuration(p, langPath);
 		lang.reloadConfig();
+		
+		// If the default file could not be loaded, try with external file
+		if(lang.getConfig() == null) {
+			File langFile = new File(p.getDataFolder(), langPath);
+			if(!langFile.isFile()) {
+				p.getLogger().warning(
+						String.format("Language file '%s' was not found.", langPath));
+				langPath = "lang_default.yml";
+			}
+		}
+
+		// Show which language file was loaded
+		p.getLogger().info("Language file: " + langPath);
+		if(lang == null) {
+			lang = new Configuration(p, langPath);
+			lang.reloadConfig();
+		}
 	}
 
 	/**
