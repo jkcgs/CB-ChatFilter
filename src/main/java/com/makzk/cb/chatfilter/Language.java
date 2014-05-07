@@ -9,7 +9,7 @@ public class Language {
 
 	public void load() {
 		// Checks if desired language file exists
-		String langPath = String.format(p.config.string("lang"), "lang_%s.yml");
+		String langPath = String.format("lang_%s.yml", p.config.string("lang"));
 
 		// If desired language file does not exists, use the default one
 		if (!(new File(langPath)).isFile()) {
@@ -21,7 +21,7 @@ public class Language {
 		}
 
 		// Loads language file
-		p.getLogger().info("Language file: " + langPath + ".yml");
+		p.getLogger().info("Language file: " + langPath);
 		lang = new Configuration(p, langPath);
 		lang.reloadConfig();
 	}
