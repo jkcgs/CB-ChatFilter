@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.makzk.cb.chatfilter</groupId>
 	<artifactId>ChatFilter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<repositories>
 		<repository>
@@ -58,6 +58,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<!-- If you're not me (makzk), remove this when building! -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
