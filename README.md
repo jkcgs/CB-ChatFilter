@@ -12,4 +12,4 @@ Planned:
  - Specific replacement string for every filter (except for IP filter)
  - Filter/block repeated chat messages
  
-[Last build](https://dl.dropboxusercontent.com/u/50994829/minecraft/plugins/ChatFilter/ChatFilter-0.0.1-SNAPSHOT-r19.jar)
+[Last build](https://dl.dropboxusercontent.com/u/50994829/minecraft/plugins/ChatFilter/ChatFilter-0.0.2-SNAPSHOT-r20.jar)
