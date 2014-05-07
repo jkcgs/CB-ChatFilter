@@ -11,8 +11,11 @@ public class Language {
 		// Checks if desired language file exists
 		String langPath = String.format("lang_%s.yml", p.config.string("lang"));
 
+		File langFile = new File(p.getDataFolder(), langPath);
 		// If desired language file does not exists, use the default one
-		if (!(new File(langPath)).isFile()) {
+		// Will not check if language is "default", because it should be
+		// always there for you :$
+		if (!p.config.string("lang").equals("default") && !langFile.isFile()) {
 			// Don't translate, we think that the language 
 			// file could not be loaded
 			p.getLogger().warning(

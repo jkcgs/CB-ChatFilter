@@ -55,7 +55,9 @@ public class ChatFilterCommand implements CommandExecutor {
 			if (sub.equals("save")) {
 				senderLog(sender, p.lang.str("savingConfig"));
 
+				p.config.saveDefaultConfig();
 				p.config.saveConfig();
+				p.filter.saveDefaultConfig();
 				p.filter.saveConfig();
 
 				senderLog(sender, p.lang.str("savedConfig"));
