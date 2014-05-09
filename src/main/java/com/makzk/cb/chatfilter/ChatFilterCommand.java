@@ -20,30 +20,9 @@ public class ChatFilterCommand implements CommandExecutor {
 
 		if (args.length < 1) {
 			sender.sendMessage(p.getFullDescription());
+			sender.sendMessage(String.format(p.lang.str("typeForHelp"), cmd.getName()));
 		} else {
 			String sub = args[0];
-
-			if (sub.equals("help")) {
-				List<String> help = new ArrayList<String>();
-				help.add(p.getFullDescription());
-				help.add(String.format("/%s help - %s", cmd.getName(),
-						p.lang.str("helpDescription")));
-				help.add(String.format("/%s reload - %s", cmd.getName(),
-						p.lang.str("reloadDescription")));
-				help.add(String.format("/%s save - %s", cmd.getName(),
-						p.lang.str("saveDescription")));
-				help.add(String.format("/%s toggle - %s", cmd.getName(),
-						p.lang.str("toggleDescription")));
-				help.add(String.format("/%s toggle-status - %s", cmd.getName(),
-						p.lang.str("togglestatusDescription")));
-				help.add(String.format("/%s list - %s", cmd.getName(),
-						p.lang.str("listDescription")));
-				help.add(String.format("/%s add - %s", cmd.getName(),
-						p.lang.str("addDescription")));
-				help.add(String.format("/%s remove - %s", cmd.getName(),
-						p.lang.str("removeDescription")));
-				sender.sendMessage(help.toArray(new String[help.size()]));
-			}
 
 			// Reload the configuration and filters
 			if (sub.equals("reload")) {
@@ -56,7 +35,8 @@ public class ChatFilterCommand implements CommandExecutor {
 				}
 			}
 
-			if (sub.equals("save")) {
+			// Saves the configuration
+			else if (sub.equals("save")) {
 				senderLog(sender, p.lang.str("savingConfig"));
 
 				p.config.saveDefaultConfig();
@@ -67,7 +47,8 @@ public class ChatFilterCommand implements CommandExecutor {
 				senderLog(sender, p.lang.str("savedConfig"));
 			}
 
-			if (sub.equals("toggle")) {
+			// Activate/deactivate toggles
+			else if (sub.equals("toggle")) {
 				String toggle = args.length < 2 ? "global" : args[1].toLowerCase();
 				String toggleName = null;
 
@@ -98,7 +79,8 @@ public class ChatFilterCommand implements CommandExecutor {
 				}
 			}
 			
-			if(sub.equals("toggle-status")) {
+			// Check toggles status
+			else if(sub.equals("toggle-status")) {
 				// global, upcase, ip, blockfiltered
 				List<String> toggleStatus = new ArrayList<String>();
 				toggleStatus.add(p.lang.str("toggleStatusTitle") + ":");
@@ -110,17 +92,19 @@ public class ChatFilterCommand implements CommandExecutor {
 				sender.sendMessage(toggleStatus.toArray(new String[toggleStatus.size()]));
 			}
 			
-			if(sub.equals("list")) {
+			// List actual filters
+			else if(sub.equals("list")) {
 				List<String> filters = p.filter.list("filters");
 				if(filters.size() > 0) {
-					filters.sort(null);
-					sender.sendMessage(filters.toString());
+					sender.sendMessage(p.lang.str("listOfFilters"));
+					sender.sendMessage(filters.toArray(new String[filters.size()]));
 				} else {
 					sender.sendMessage(p.lang.str("noFilters"));
 				}
 			}
 
-			if (sub.equals("add")) {
+			// Add an epic filter
+			else if (sub.equals("add")) {
 				if (args.length < 2) {
 					sender.sendMessage(p.lang.str("usage") + ": /" + cmd.getName() + " add <string>");
 					return true;
@@ -137,7 +121,8 @@ public class ChatFilterCommand implements CommandExecutor {
 				}
 			}
 
-			if (sub.equals("remove")) {
+			// Removes an epic filter
+			else if (sub.equals("remove")) {
 				if (args.length < 2) {
 					sender.sendMessage(p.lang.str("usage") + ": /" + cmd.getName() + " remove <string>");
 					return true;
@@ -150,6 +135,31 @@ public class ChatFilterCommand implements CommandExecutor {
 				} else {
 					sender.sendMessage(p.lang.str("filterNotExists"));
 				}
+			} else {
+				List<String> help = new ArrayList<String>();
+				if (!sub.equals("help")) {
+					sender.sendMessage(p.lang.str("subNoExists"));
+				} else {
+					help.add(p.getFullDescription());
+				}
+				
+				help.add(String.format("/%s help - %s", cmd.getName(),
+						p.lang.str("helpDescription")));
+				help.add(String.format("/%s reload - %s", cmd.getName(),
+						p.lang.str("reloadDescription")));
+				help.add(String.format("/%s save - %s", cmd.getName(),
+						p.lang.str("saveDescription")));
+				help.add(String.format("/%s toggle - %s", cmd.getName(),
+						p.lang.str("toggleDescription")));
+				help.add(String.format("/%s toggle-status - %s", cmd.getName(),
+						p.lang.str("togglestatusDescription")));
+				help.add(String.format("/%s list - %s", cmd.getName(),
+						p.lang.str("listDescription")));
+				help.add(String.format("/%s add - %s", cmd.getName(),
+						p.lang.str("addDescription")));
+				help.add(String.format("/%s remove - %s", cmd.getName(),
+						p.lang.str("removeDescription")));
+				sender.sendMessage(help.toArray(new String[help.size()]));
 			}
 		}
 		return true;

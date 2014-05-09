@@ -3,6 +3,7 @@ pluginUnloaded: "Configuración guardada, plugin desactivado! Gracias por usarlo 
 configReloaded: "Configuración recargada!"
 noPermission: "No tienes permiso para usar este comando."
 
+typeForHelp: "Usa '/%s help' para ver más comandos"
 helpDescription: "Muestra esta ayuda"
 reloadDescription: "Recarga la configuración"
 saveDescription: "Guarda la configuración y los filtros"
@@ -11,6 +12,7 @@ togglestatusDescription: "Muestra el estado de los filtros"
 listDescription: "Muestra los filtros actuales"
 addDescription: "Agrega un filtro a la lista de filtros"
 removeDescription: "Quita un filtro existente"
+subNoExists: "Ese sub-comando no existe."
 
 savingConfig: "Guardando todo..."
 savedConfig: "Configuración y filtros guardados"
@@ -24,6 +26,7 @@ toggleStatus: "El filtro de chat ahora está"
 toggleStatusTitle: "Estado de filtros"
 
 noFilters: "No hay filtros"
+listOfFilters: "Lista de filtros actuales:"
 newFilterAdded: "Nuevo filtro agregado"
 filterAlreadyExists: "That filter already exists"
 filterRemoved: "Filtro quitado"
