@@ -107,6 +107,16 @@ public class ChatFilterCommand implements CommandExecutor {
 				
 				sender.sendMessage(toggleStatus.toArray(new String[toggleStatus.size()]));
 			}
+			
+			if(sub.equals("list")) {
+				List<String> filters = p.filter.list("filters");
+				if(filters.size() > 0) {
+					filters.sort(null);
+					sender.sendMessage(filters.toString());
+				} else {
+					sender.sendMessage(p.lang.str("noFilters"));
+				}
+			}
 
 			if (sub.equals("add")) {
 				if (args.length < 2) {

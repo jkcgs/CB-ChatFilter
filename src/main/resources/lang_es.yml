@@ -22,6 +22,7 @@ toggleNotFound: "Ese filtro no existe. Usa '/%s toggle help' para ver una lista 
 toggleStatus: "El filtro de chat ahora está"
 toggleStatusTitle: "Estado de filtros"
 
+noFilters: "No hay filtros"
 newFilterAdded: "Nuevo filtro agregado"
 filterAlreadyExists: "That filter already exists"
 filterRemoved: "Filtro quitado"

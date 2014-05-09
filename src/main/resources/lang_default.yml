@@ -23,6 +23,7 @@ toggleNotFound: "That toggle does not exists. Type '/%s toggle help' to see the 
 toggleStatus: "The chat filter is now"
 toggleStatusTitle: "Toggles status"
 
+noFilters: "There are no filters"
 newFilterAdded: "New filter added"
 filterAlreadyExists: "That filter already exists"
 filterRemoved: "Filter removed"
