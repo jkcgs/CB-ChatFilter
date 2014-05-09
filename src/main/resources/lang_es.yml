@@ -8,6 +8,7 @@ reloadDescription: "Recarga la configuración"
 saveDescription: "Guarda la configuración y los filtros"
 toggleDescription: "Activa y desactiva los filtros"
 togglestatusDescription: "Muestra el estado de los filtros"
+listDescription: "Muestra los filtros actuales"
 addDescription: "Agrega un filtro a la lista de filtros"
 removeDescription: "Quita un filtro existente"
 

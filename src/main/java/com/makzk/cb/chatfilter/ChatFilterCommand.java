@@ -36,6 +36,8 @@ public class ChatFilterCommand implements CommandExecutor {
 						p.lang.str("toggleDescription")));
 				help.add(String.format("/%s toggle-status - %s", cmd.getName(),
 						p.lang.str("togglestatusDescription")));
+				help.add(String.format("/%s list - %s", cmd.getName(),
+						p.lang.str("listDescription")));
 				help.add(String.format("/%s add - %s", cmd.getName(),
 						p.lang.str("addDescription")));
 				help.add(String.format("/%s remove - %s", cmd.getName(),

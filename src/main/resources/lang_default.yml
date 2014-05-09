@@ -9,6 +9,7 @@ reloadDescription: "Reloads configuration"
 saveDescription: "Saves the configuration and filters"
 toggleDescription: "Toggles the filters on/off"
 togglestatusDescription: "Shows the status of available toggles"
+listDescription: "Shows current filters"
 addDescription: "Adds a filter to the filter-list"
 removeDescription: "Removes an existent filter"
 
