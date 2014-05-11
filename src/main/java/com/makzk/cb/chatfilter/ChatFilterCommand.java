@@ -64,7 +64,7 @@ public class ChatFilterCommand implements CommandExecutor {
 				} else if (toggle.equals("ip")) {
 					toggleName = "ipFilter";
 				} else if (toggle.equals("blockfiltered")) {
-					toggleName = "toggleFilteredMessage";
+					toggleName = "blockFilteredMessage";
 				} else {
 					senderLog(sender, String.format(p.lang.str("toggleNotFound"), cmd.getName()));
 				}
