@@ -99,7 +99,7 @@ public class MessageFilterer {
 	 * @return true if the original message
 	 */
 	public boolean isFiltered() {
-		return originalMessage != filteredMessage;
+		return !originalMessage.equals(filteredMessage);
 	}
 
 	/**
