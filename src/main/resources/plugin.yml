@@ -1,4 +1,4 @@
-name: ChatFilter
+name: AnEpicFilter
 main: com.makzk.cb.chatfilter.ChatFilter
 version: 0.0.2
 author: makzk
