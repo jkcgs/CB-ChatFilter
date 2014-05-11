@@ -13,4 +13,4 @@ Planned:
  - Specific replacement string for every filter (except for IP filter)
  - Filter/block repeated chat messages
  
-[Lastest builds](https://repo.makzk.com/cbp/chatfilter/)
+[Lastest builds](http://repo.makzk.com/repos/chatfilter)
