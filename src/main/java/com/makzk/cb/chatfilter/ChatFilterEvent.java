@@ -42,7 +42,10 @@ public class ChatFilterEvent implements Listener {
 									.getName(), e.getMessage()));
 				}
 
-				if (p.config.bool("blockFilteredMessage")) {
+				if(p.config.bool("kickOnFilter")) {
+					e.getPlayer().kickPlayer(p.config.string("kickMessage"));
+					e.setCancelled(true);
+				} else if (p.config.bool("blockFilteredMessage")) {
 					e.getPlayer().sendMessage(p.lang.str("blockedMsgInfo"));
 					e.setCancelled(true);
 				} else {

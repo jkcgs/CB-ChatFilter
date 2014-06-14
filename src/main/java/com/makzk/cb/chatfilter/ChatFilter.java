@@ -63,8 +63,9 @@ public class ChatFilter extends JavaPlugin {
 	}
 
 	/**
-	 * Reloads configuration files
+	 * Reloads configuration files.
 	 */
+	@Override
 	public void reloadConfig() {
 		config.reloadConfig();
 		lang.load();

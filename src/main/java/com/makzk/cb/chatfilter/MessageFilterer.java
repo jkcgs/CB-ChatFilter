@@ -17,7 +17,7 @@ public class MessageFilterer {
 	// http://www.mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/
 	private static final String ipAddrPattern = 
 			// repeat the first part 3 times
-			new String(new char[3]).replace("\0", "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.") +
+			"...".replace(".", "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.") +
 			"([01]?\\d\\d?|2[0-4]\\d|25[0-5])";
 	
 	private static final String alwaysFiltered = "redcraft";
