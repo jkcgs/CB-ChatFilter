@@ -9,7 +9,7 @@ public class Language {
 
 	public void load() {
 		// Checks if desired language file exists
-		String langPath = String.format("lang_%s.yml", p.config.string("lang"));
+		String langPath = String.format("lang_%s.yml", p.getConf().string("lang"));
 		
 		// Try to load a default file from plugin jar
 		lang = new Configuration(p, langPath);

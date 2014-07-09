@@ -11,9 +11,9 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class ChatFilter extends JavaPlugin {
 	private static ChatFilter instance;
-	public Configuration config = null;
-	public Configuration filter = null;
-	public Language lang = null;
+	private Configuration config = null;
+	private Configuration filter = null;
+	private Language lang = null;
 
 	@Override
 	public void onEnable() {
@@ -101,5 +101,17 @@ public class ChatFilter extends JavaPlugin {
 
 		return String.format("%s v%s, %s", getDescription().getName(),
 				getDescription().getVersion(), authors);
+	}
+
+	public Configuration getConf() {
+		return config;
+	}
+
+	public Configuration getFilter() {
+		return filter;
+	}
+
+	public Language getLang() {
+		return lang;
 	}
 }
