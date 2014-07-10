@@ -53,11 +53,9 @@ public class MessageFilterer {
 	/**
 	 * Applies the uppercase filter
 	 * 
-	 * @param maxAmount
-	 *            If the amount of uppercase is more than this, the filter will
-	 *            be applied
-	 * @param upcasePattern
-	 *            The regular expression to use to detect uppercase letters
+	 * @param maxAmount If the amount of uppercase is more than this, the filter will
+	 *                  be applied
+	 * @param upcasePattern The regular expression to use to detect uppercase letters
 	 */
 	public void filterUpcases(int maxAmount, String upcasePattern) {
 		int i = 0;
@@ -74,8 +72,7 @@ public class MessageFilterer {
 	/**
 	 * Applies a filter based on regular expression
 	 * 
-	 * @param regex
-	 *            The regular expression to use
+	 * @param regex The regular expression to use
 	 */
 	public void filterRegex(String regex) {
 		filteredMessage = replace(filteredMessage, regex);
@@ -84,14 +81,37 @@ public class MessageFilterer {
 	/**
 	 * Applies a filter based on a regular expression array
 	 * 
-	 * @param regex
-	 *            The regular expressions to filter
+	 * @param regex The regular expressions to filter
 	 */
 	public void filterRegex(String[] regex) {
 		for (int i = 0; i < regex.length; i++) {
 			filterRegex(regex[i]);
 		}
 	}
+	
+	/**
+	 * Applies a filter based on regular expression, with a specific string
+	 * 
+	 * @param regex The regular expression to use.
+	 * @param replace The string that will replace the filtered strings
+	 */
+	public void filterRegex(String regex, String replace) {
+		filteredMessage = replace(filteredMessage, regex, replace);
+	}
+
+	/**
+	 * Applies a filter based on a regular expression array with a specific string
+	 * 
+	 * @param regex The regular expressions to filter
+	 * @param replace The string that will replace the filtered strings
+	 */
+	public void filterRegex(String[] regex, String replace) {
+		for (int i = 0; i < regex.length; i++) {
+			filterRegex(regex[i], replace);
+		}
+	}
+	
+	
 
 	/**
 	 * Checks if the applied (or not) filters were effective
@@ -105,17 +125,36 @@ public class MessageFilterer {
 	/**
 	 * Changes the actual filter string, that will replace the filtered strings.
 	 * 
-	 * @param filterString
-	 *            The new filter string
+	 * @param filterString The new filter string
 	 */
 	public void setFilterString(String filterString) {
 		this.filterString = filterString;
 	}
 
-	// replace case insensitive
+	/**
+	 * Replaces a string from a pattern, case insensitive, with string of this object.
+	 * 
+	 * @param msg The string to replace
+	 * @param pattern The pattern to search
+	 * @return The string replaced
+	 */
 	private String replace(String msg, String pattern) {
 		if (msg.toLowerCase().contains(pattern.toLowerCase()))
 			return msg.replaceAll("(?i)" + pattern, filterString);
+		return msg;
+	}
+	
+	/**
+	 * Replaces a string from a pattern, case insensitive, with a specific string.
+	 * 
+	 * @param msg The string to replace
+	 * @param pattern The pattern to search
+	 * @param replace The string that will replace the matched strings
+	 * @return The string replaced
+	 */
+	private String replace(String msg, String pattern, String replace) {
+		if (msg.toLowerCase().contains(pattern.toLowerCase()))
+			return msg.replaceAll("(?i)" + pattern, replace);
 		return msg;
 	}
 }

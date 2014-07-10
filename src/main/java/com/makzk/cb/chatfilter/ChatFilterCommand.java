@@ -80,7 +80,7 @@ public class ChatFilterCommand implements CommandExecutor {
 			}
 			
 			// Check toggles status
-			else if(sub.equals("toggle-status")) {
+			else if(sub.equals("status")) {
 				// global, upcase, ip, blockfiltered
 				List<String> toggleStatus = new ArrayList<String>();
 				toggleStatus.add(p.getLang().str("toggleStatusTitle") + ":");
@@ -151,7 +151,7 @@ public class ChatFilterCommand implements CommandExecutor {
 						p.getLang().str("saveDescription")));
 				help.add(String.format("/%s toggle - %s", cmd.getName(),
 						p.getLang().str("toggleDescription")));
-				help.add(String.format("/%s toggle-status - %s", cmd.getName(),
+				help.add(String.format("/%s status - %s", cmd.getName(),
 						p.getLang().str("togglestatusDescription")));
 				help.add(String.format("/%s list - %s", cmd.getName(),
 						p.getLang().str("listDescription")));

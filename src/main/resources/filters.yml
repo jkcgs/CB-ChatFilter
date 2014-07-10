@@ -1,2 +1,7 @@
-filters:
+strings:
   - lag
+  - redcraft
+specific: {
+  shit: 'damn',
+  fuck: 'f*ck'
+}

@@ -1,6 +1,8 @@
 package com.makzk.cb.chatfilter;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,9 +23,17 @@ public class ChatFilterEvent implements Listener {
 				return;
 			}
 
-			List<String> filters = p.getFilter().list("filters");
+			List<String> filters = p.getFilter().list("strings");
+			Map<String, Object> specific = p.getFilter().getConfig().getConfigurationSection("specific").getValues(false);
 			msg = new MessageFilterer(e.getMessage(), p.getConf().string("filterString"));
 			msg.filterRegex(filters.toArray(new String[filters.size()]));
+			
+			// Specific filters processing
+			Iterator<String> it = specific.keySet().iterator();
+			while(it.hasNext()){
+			  String key = (String) it.next();
+			  msg.filterRegex(key, (String) specific.get(key));
+			}
 
 			if (p.getConf().bool("ipFilter")) {
 				msg.filterIP();

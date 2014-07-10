@@ -15,7 +15,7 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.7.9-R0.1-20140501.232652-9</version>
+			<version>1.7.10-R0.1-20140710.000649-3</version>
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
