@@ -25,8 +25,11 @@ public class ChatFilterEvent implements Listener {
 				return;
 			}
 
+			// Get filters
 			List<String> filters = p.getFilter().list("strings");
+			// The map of specific filters
 			Map<String, Object> specific = p.getFilter().getConfig().getConfigurationSection("specific").getValues(false);
+			
 			msg = new MessageFilterer(e.getMessage(), p.getConf().string("filterString"));
 			msg.filterRegex(filters.toArray(new String[filters.size()]));
 			
@@ -62,9 +65,10 @@ public class ChatFilterEvent implements Listener {
 			if (msg.isFiltered()) {
 				if (p.getConf().bool("logOriginalFilteredMessage")) {
 					p.getLogger().info(
-							String.format("%s: (%s) '%s'", p.getLang()
-									.str("chatMsgBlocked"), e.getPlayer()
-									.getName(), e.getMessage()));
+							String.format("%s: (%s) '%s'", 
+									p.getLang().str("chatMsgBlocked"), 
+									e.getPlayer().getName(), 
+									e.getMessage()));
 				}
 
 				if(p.getConf().bool("kickOnFilter")) {
