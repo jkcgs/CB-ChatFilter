@@ -88,7 +88,7 @@ public class ChatFilterCommand implements CommandExecutor {
 				toggleStatus.add(p.getLang().str("toggleStatusTitle") + ":");
 				toggleStatus.add("global: " + boolToStatus(p.getConf().bool("filterEnabled")));
 				toggleStatus.add("upcase: " + boolToStatus(p.getConf().bool("upcaseFilter")));
-				toggleStatus.add("ip: " + boolToStatus(p.getConf().bool("filterEnabled")));
+				toggleStatus.add("ip: " + boolToStatus(p.getConf().bool("ipFilter")));
 				toggleStatus.add("repeated: " + boolToStatus(p.getConf().bool("repeatedFilter")));
 				toggleStatus.add("blockfiltered: " + boolToStatus(p.getConf().bool("blockFilteredMessaged")));
 				
