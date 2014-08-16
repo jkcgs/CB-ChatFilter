@@ -1,5 +1,6 @@
 package com.makzk.cb.chatfilter;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class ChatFilterEvent implements Listener {
 	private ChatFilter p = ChatFilter.getInstance();
 	private MessageFilterer msg;
+	private Map<String, String> lastMsg = new HashMap<String, String>();
 
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent e) {
@@ -33,6 +35,19 @@ public class ChatFilterEvent implements Listener {
 			while(it.hasNext()){
 			  String key = (String) it.next();
 			  msg.filterRegex(key, (String) specific.get(key));
+			}
+			
+			// Repeated words filter
+			if(p.getConf().bool("repeatedFilter")) {
+				if(lastMsg.containsKey(e.getPlayer().getName())) {
+					String msg = e.getMessage().trim().replaceAll("  ", " ");
+					if(lastMsg.get(e.getPlayer().getName()).equals(msg)) {
+						e.setCancelled(true);
+						e.getPlayer().sendMessage("Don't send repeated messages!");
+					}
+				} else {
+					lastMsg.put(e.getPlayer().getName(), "");
+				}
 			}
 
 			if (p.getConf().bool("ipFilter")) {

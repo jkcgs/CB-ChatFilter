@@ -19,6 +19,7 @@ savedConfig: "Configuración y filtros guardados"
 
 chatMsgBlocked: "Mensaje de chat bloqueado"
 blockedMsgInfo: "Tu mensaje fue bloqueado porque contiene elementos no permitidos"
+repeatedMsgAlert: "¡No envíes mensajes repetidos!"
 
 availableToggles: "Filtros disponibles: global, upcase, ip, blockfiltered."
 toggleNotFound: "Ese filtro no existe. Usa '/%s toggle help' para ver una lista de ellos"

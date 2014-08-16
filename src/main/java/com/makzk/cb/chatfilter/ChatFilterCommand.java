@@ -63,6 +63,8 @@ public class ChatFilterCommand implements CommandExecutor {
 					toggleName = "upcaseFilter";
 				} else if (toggle.equals("ip")) {
 					toggleName = "ipFilter";
+				} else if (toggle.equals("repeated")) {
+					toggleName = "repeatedFilter";
 				} else if (toggle.equals("blockfiltered")) {
 					toggleName = "blockFilteredMessage";
 				} else {
@@ -87,6 +89,7 @@ public class ChatFilterCommand implements CommandExecutor {
 				toggleStatus.add("global: " + boolToStatus(p.getConf().bool("filterEnabled")));
 				toggleStatus.add("upcase: " + boolToStatus(p.getConf().bool("upcaseFilter")));
 				toggleStatus.add("ip: " + boolToStatus(p.getConf().bool("filterEnabled")));
+				toggleStatus.add("repeated: " + boolToStatus(p.getConf().bool("repeatedFilter")));
 				toggleStatus.add("blockfiltered: " + boolToStatus(p.getConf().bool("blockFilteredMessaged")));
 				
 				sender.sendMessage(toggleStatus.toArray(new String[toggleStatus.size()]));
