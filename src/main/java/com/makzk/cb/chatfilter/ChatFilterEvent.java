@@ -72,7 +72,12 @@ public class ChatFilterEvent implements Listener {
 				}
 
 				if(p.getConf().bool("kickOnFilter")) {
-					e.getPlayer().kickPlayer(p.getConf().string("kickMessage"));
+					String kickMsg = p.getConf().string("kickMessage");
+					if(kickMsg.isEmpty()) {
+						kickMsg = p.getLang().str("defaultKickMsg");
+					}
+					
+					e.getPlayer().kickPlayer(kickMsg);
 					e.setCancelled(true);
 				} else if (p.getConf().bool("blockFilteredMessage")) {
 					e.getPlayer().sendMessage(p.getLang().str("blockedMsgInfo"));

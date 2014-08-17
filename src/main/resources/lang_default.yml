@@ -21,6 +21,7 @@ savedConfig: "Configuration and filters saved"
 chatMsgBlocked: "Chat message blocked"
 blockedMsgInfo: "Your message were blocked because it contains not allowed content."
 repeatedMsgAlert: "Don't send repeated messages!"
+defaultBlockedMsg: "Chat filter has kicked you!"
 
 availableToggles: "Available toggles: global, upcase, ip, blockfiltered."
 toggleNotFound: "That toggle does not exists. Type '/%s toggle help' to see the toggle list"
