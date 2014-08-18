@@ -50,7 +50,7 @@ public class ChatFilterEvent implements Listener {
 					String msg = e.getMessage().trim().replaceAll("  ", " ");
 					if(lastMsg.get(e.getPlayer().getName()).equals(msg)) {
 						e.setCancelled(true);
-						e.getPlayer().sendMessage("Don't send repeated messages!");
+						e.getPlayer().sendMessage(p.getLang().str("repeatedMsgAlert"));
 					} else {
 						lastMsg.put(e.getPlayer().getName(), msg);
 					}
