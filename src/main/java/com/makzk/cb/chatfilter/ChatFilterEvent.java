@@ -12,7 +12,11 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class ChatFilterEvent implements Listener {
 	private ChatFilter p = ChatFilter.getInstance();
 	private MessageFilterer msg;
-	private Map<String, String> lastMsg = new HashMap<String, String>();
+	private Map<String, String> lastMsg;
+	
+	public ChatFilterEvent() {
+		lastMsg = new HashMap<String, String>();
+	}
 
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent e) {
@@ -47,6 +51,8 @@ public class ChatFilterEvent implements Listener {
 					if(lastMsg.get(e.getPlayer().getName()).equals(msg)) {
 						e.setCancelled(true);
 						e.getPlayer().sendMessage("Don't send repeated messages!");
+					} else {
+						lastMsg.put(e.getPlayer().getName(), msg);
 					}
 				} else {
 					lastMsg.put(e.getPlayer().getName(), "");
@@ -86,9 +92,6 @@ public class ChatFilterEvent implements Listener {
 					e.setMessage(msg.getFilteredMsg());
 				}
 			}
-
-			// Delete class instance
-			msg = null;
 		}
 	}
 }
